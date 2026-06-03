@@ -1,0 +1,2 @@
+# SpotIa
+Parcial 3
