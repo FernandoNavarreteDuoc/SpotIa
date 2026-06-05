@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.PaginaSpotIa.DTO.reservasDTO;
-import com.example.PaginaSpotIa.model.Reservas;
-import com.example.PaginaSpotIa.service.ReservasService;
+import com.reserva.reservas.DTO.reservasDTO;
+import com.reserva.reservas.model.Reservas;
+import com.reserva.reservas.service.ReservasService;
 
 import jakarta.validation.Valid;
 

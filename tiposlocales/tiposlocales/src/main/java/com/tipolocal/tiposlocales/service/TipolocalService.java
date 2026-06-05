@@ -6,9 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.PaginaSpotIa.DTO.tipolocalDTO;
-import com.example.PaginaSpotIa.model.Tipolocal;
-import com.example.PaginaSpotIa.repository.TipolocalRepository;
+import com.tipolocal.tiposlocales.DTO.tipolocalDTO;
+import com.tipolocal.tiposlocales.model.Tipolocal;
+import com.tipolocal.tiposlocales.repository.TipolocalRepository;
 
 @Service
 public class TipolocalService {

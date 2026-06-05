@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.PaginaSpotIa.model.Tipolocal;
+import com.tipolocal.tiposlocales.model.Tipolocal;
+
 
 @Repository
-public interface TipolocalRepository
-        extends JpaRepository<Tipolocal, Integer> {
+public interface TipolocalRepository extends JpaRepository<Tipolocal, Integer> {
 
     @Query("SELECT t FROM Tipolocal t WHERE t.nombre LIKE %:nombre%")
     List<Tipolocal> buscarPorNombre(

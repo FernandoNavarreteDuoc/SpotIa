@@ -7,11 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.PaginaSpotIa.model.Region;
+import com.region.regiones.model.Region;
 
 @Repository
-public interface RegionRepository
-        extends JpaRepository<Region, Integer> {
+public interface RegionRepository extends JpaRepository<Region, Integer> {
     
     @Query("SELECT r FROM Region r WHERE r.nombre LIKE %:nombre%")
     List<Region> buscarPorNombre(

@@ -6,9 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.PaginaSpotIa.DTO.regionDTO;
-import com.example.PaginaSpotIa.model.Region;
-import com.example.PaginaSpotIa.repository.RegionRepository;
+import com.region.regiones.DTO.regionDTO;
+import com.region.regiones.model.Region;
+import com.region.regiones.repository.RegionRepository;
 
 @Service
 public class RegionService {

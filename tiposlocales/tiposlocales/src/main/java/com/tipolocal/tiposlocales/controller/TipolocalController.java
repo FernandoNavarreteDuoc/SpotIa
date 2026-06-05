@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.PaginaSpotIa.DTO.tipolocalDTO;
-import com.example.PaginaSpotIa.model.Tipolocal;
-import com.example.PaginaSpotIa.service.TipolocalService;
+import com.tipolocal.tiposlocales.DTO.tipolocalDTO;
+import com.tipolocal.tiposlocales.model.Tipolocal;
+import com.tipolocal.tiposlocales.service.TipolocalService;
 
 import jakarta.validation.Valid;
 

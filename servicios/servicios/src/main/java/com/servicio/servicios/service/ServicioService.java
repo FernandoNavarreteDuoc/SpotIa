@@ -7,9 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.PaginaSpotIa.DTO.servicioDTO;
-import com.example.PaginaSpotIa.model.Servicio;
-import com.example.PaginaSpotIa.repository.ServicioRepository;
+import com.servicio.servicios.DTO.servicioDTO;
+import com.servicio.servicios.model.Servicio;
+import com.servicio.servicios.repository.ServicioRepository;
 
 @Service
 public class ServicioService {
