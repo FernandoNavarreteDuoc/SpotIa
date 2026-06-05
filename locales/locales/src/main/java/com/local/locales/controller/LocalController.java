@@ -1,4 +1,4 @@
-package com.region.regiones.controller;
+package com.local.locales.controller;
 
 import java.util.List;
 
@@ -13,36 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.PaginaSpotIa.DTO.regionDTO;
-import com.example.PaginaSpotIa.model.Region;
-import com.example.PaginaSpotIa.service.RegionService;
+import com.example.PaginaSpotIa.DTO.localDTO;
+import com.example.PaginaSpotIa.model.Local;
+import com.example.PaginaSpotIa.service.LocalService;
 
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/regiones")
-@RequiredArgsConstructor
-public class RegionController {
+@RequestMapping("/api/v1/locales")
+public class LocalController {
 
-    private final RegionService service;
+    private final LocalService service;
+
+    public LocalController(LocalService service) {
+
+        this.service = service;
+    }
 
     @GetMapping
-    public ResponseEntity<List<Region>> listar() {
+    public ResponseEntity<List<Local>> listar() {
 
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Region> buscar(
+    public ResponseEntity<Local> buscar(
             @PathVariable Integer id) {
 
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Region> guardar(
-            @Valid @RequestBody regionDTO dto) {
+    public ResponseEntity<Local> guardar(
+            @Valid @RequestBody localDTO dto) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -50,14 +53,14 @@ public class RegionController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Region> actualizar(
+    public ResponseEntity<Local> actualizar(
             @PathVariable Integer id,
-            @Valid @RequestBody regionDTO dto) {
+            @Valid @RequestBody localDTO dto) {
 
         return ResponseEntity.ok(
                 service.actualizar(id, dto));
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(
             @PathVariable Integer id) {
