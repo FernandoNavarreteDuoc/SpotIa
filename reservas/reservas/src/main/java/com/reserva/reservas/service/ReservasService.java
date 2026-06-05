@@ -6,9 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.PaginaSpotIa.DTO.reservasDTO;
-import com.example.PaginaSpotIa.model.*;
-import com.example.PaginaSpotIa.repository.*;
+import com.reserva.reservas.DTO.reservasDTO;
+import com.reserva.reservas.model.reservas;
+import com.reserva.reservas.repository.ReservasRepository;
 
 @Service
 public class ReservasService {

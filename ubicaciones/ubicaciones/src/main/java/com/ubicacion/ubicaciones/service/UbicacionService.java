@@ -6,11 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.PaginaSpotIa.DTO.ubicacionDTO;
-import com.example.PaginaSpotIa.model.Comuna;
-import com.example.PaginaSpotIa.model.Ubicacion;
-import com.example.PaginaSpotIa.repository.ComunaRepository;
-import com.example.PaginaSpotIa.repository.UbicacionRepository;
+import com.ubicacion.ubicaciones.DTO.ubicacionDTO;
+import com.ubicacion.ubicaciones.model.Ubicacion;
+import com.ubicacion.ubicaciones.repository.UbicacionRepository;
 
 @Service
 public class UbicacionService {

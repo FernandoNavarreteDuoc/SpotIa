@@ -1,4 +1,4 @@
-package com.tipolocal.tiposlocales.controller;
+package com.estado.estados.controller;
 
 import java.util.List;
 
@@ -11,41 +11,41 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.tipolocal.tiposlocales.DTO.tipolocalDTO;
-import com.tipolocal.tiposlocales.model.Tipolocal;
-import com.tipolocal.tiposlocales.service.TipolocalService;
+import com.estado.estados.DTO.EstadoDTO;
+import com.estado.estados.model.Estado;
+import com.estado.estados.service.EstadoService;
 
 import jakarta.validation.Valid;
 
-@RestController
-@RequestMapping("/api/v1/tipo_local")
-public class TipolocalController {
+@ResponseStatus
+@RequestMapping("/api/v1/estados")
+public class EstadoController {
 
-    private final TipolocalService service;
+    private final EstadoService service;
 
-    public TipolocalController(TipolocalService service) {
+    public EstadoController(EstadoService service) {
 
         this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<Tipolocal>> listar() {
+    public ResponseEntity<List<Estado>> listar() {
 
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Tipolocal> buscar(
+    public ResponseEntity<Estado> buscar(
             @PathVariable Integer id) {
 
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Tipolocal> guardar(
-            @Valid @RequestBody tipolocalDTO dto) {
+    public ResponseEntity<Estado> guardar(
+            @Valid @RequestBody EstadoDTO dto) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -53,9 +53,9 @@ public class TipolocalController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Tipolocal> actualizar(
+    public ResponseEntity<Estado> actualizar(
             @PathVariable Integer id,
-            @Valid @RequestBody tipolocalDTO dto) {
+            @Valid @RequestBody EstadoDTO dto) {
 
         return ResponseEntity.ok(
                 service.actualizar(id, dto));

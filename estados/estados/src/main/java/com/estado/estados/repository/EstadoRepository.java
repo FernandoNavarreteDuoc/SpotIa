@@ -1,4 +1,4 @@
-package com.region.regiones.repository;
+package com.estado.estados.repository;
 
 import java.util.List;
 
@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.region.regiones.model.Region;
+import com.estado.estados.model.Estado;
 
 @Repository
-public interface RegionRepository extends JpaRepository<Region, Integer> {
-    
-    @Query("SELECT r FROM Region r WHERE r.nombre LIKE %:nombre%")
-    List<Region> buscarPorNombre(
+public interface EstadoRepository extends JpaRepository<Estado, Integer> {
+
+    @Query("SELECT e FROM Estado e WHERE e.nombre LIKE %:nombre%")
+    List<Estado> buscarPorNombre(
             @Param("nombre") String nombre
     );
 

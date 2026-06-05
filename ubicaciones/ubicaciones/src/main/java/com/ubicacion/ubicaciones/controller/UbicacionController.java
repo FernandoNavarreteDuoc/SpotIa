@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.PaginaSpotIa.DTO.ubicacionDTO;
-import com.example.PaginaSpotIa.model.Ubicacion;
-import com.example.PaginaSpotIa.service.UbicacionService;
+import com.ubicacion.ubicaciones.DTO.ubicacionDTO;
+import com.ubicacion.ubicaciones.model.Ubicacion;
+import com.ubicacion.ubicaciones.service.UbicacionService;
 
 import jakarta.validation.Valid;
 

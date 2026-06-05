@@ -7,11 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.PaginaSpotIa.model.Reservas;
+import com.reserva.reservas.model.Reservas;
 
 @Repository
-public interface ReservasRepository
-        extends JpaRepository<Reservas, Integer> {
+public interface ReservasRepository extends JpaRepository<Reservas, Integer> {
 
     @Query("SELECT r FROM Reservas r WHERE r.total >= :total")
     List<Reservas> buscarReservasCostosas(

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.PaginaSpotIa.DTO.servicioDTO;
-import com.example.PaginaSpotIa.model.Servicio;
-import com.example.PaginaSpotIa.service.ServicioService;
+import com.servicio.servicios.DTO.servicioDTO;
+import com.servicio.servicios.model.Servicio;
+import com.servicio.servicios.service.ServicioService;
 
 import jakarta.validation.Valid;
 
