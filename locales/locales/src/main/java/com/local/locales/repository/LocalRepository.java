@@ -7,15 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.PaginaSpotIa.model.Local;
+import com.local.locales.model.Local;
 
 @Repository
-public interface LocalRepository
-        extends JpaRepository<Local, Integer> {
+public interface LocalRepository extends JpaRepository<Local, Integer> {
 
-    @Query("SELECT l FROM Local l WHERE l.capacidad >= :capacidad")
-    List<Local> buscarLocalesGrandes(
-            @Param("capacidad") Integer capacidad
-    );
-
+@Query("SELECT l FROM Local l WHERE l.capacidad >= :capacidad")
+List<Local> buscarLocalesGrandes(@Param("capacidad") Integer capacidad);
 }

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.PaginaSpotIa.DTO.localDTO;
-import com.example.PaginaSpotIa.model.Local;
-import com.example.PaginaSpotIa.service.LocalService;
+import com.local.locales.DTO.localDTO;
+import com.local.locales.model.Local;
+import com.local.locales.service.LocalService;
 
 import jakarta.validation.Valid;
 
@@ -26,47 +26,34 @@ public class LocalController {
     private final LocalService service;
 
     public LocalController(LocalService service) {
-
         this.service = service;
     }
 
     @GetMapping
     public ResponseEntity<List<Local>> listar() {
-
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Local> buscar(
-            @PathVariable Integer id) {
-
+    public ResponseEntity<Local> buscar(@PathVariable Integer id) {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Local> guardar(
-            @Valid @RequestBody localDTO dto) {
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(service.guardar(dto));
+    public ResponseEntity<Local> guardar(@Valid @RequestBody localDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.guardar(dto));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Local> actualizar(
             @PathVariable Integer id,
             @Valid @RequestBody localDTO dto) {
-
-        return ResponseEntity.ok(
-                service.actualizar(id, dto));
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(
-            @PathVariable Integer id) {
-
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         service.eliminar(id);
-
         return ResponseEntity.noContent().build();
     }
 }
