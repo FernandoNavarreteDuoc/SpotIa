@@ -12,5 +12,9 @@ INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES (
 INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Juan Perez', 'Trebulco 759', 849583745, 'juan.perez@example.com', 'pelusitatequiero123');
 INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Ana Rodriguez', 'Juan Tenorio 123', 938465098, 'ana.rodriguez@example.com', 'soymuyfeliz6345');
 INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Carlos Sanchez', 'Alcántara 426', 349805674, 'carlos.sanchez@example.com', 'arribalavida734');
+INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Laura Fernandez', 'Los Libertadores 759', 583746920, 'laura.fernandez@example.com', 'lavidaesbella845');
+INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Pedro Martinez', 'Trebulco 123', 748392056, 'pedro.martinez@example.com', 'pedromartinez123');
+INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Sofia Lopez', 'Juan Tenorio 426', 938475620, 'sofia.lopez@example.com', 'sofiacarlos123');
+INSERT INTO clientes (nombre, direccion, telefono, correo, contraseña) VALUES ('Diego Ramirez', 'Alcántara 759', 583746920, 'diego.ramirez@example.com', '8473957864');
 
 
