@@ -11,9 +11,9 @@ import com.comuna.comunas.model.Comuna;
 
 @Repository
 public interface ComunaRepository extends JpaRepository<Comuna, Integer> {
-   @Query("SELECT c FROM Comuna c WHERE c.nombre LIKE %:nombre%")
-    List<Comuna> buscarPorNombre(
-            @Param("nombre") String nombre
-    );
+@Query("SELECT c FROM Comuna c WHERE c.nombre LIKE %:nombre%")
+List<Comuna> buscarPorNombre(
+        @Param("nombre") String nombre
+);
 
 }
