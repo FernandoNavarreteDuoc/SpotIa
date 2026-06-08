@@ -53,9 +53,4 @@ public class Cliente {
     @Size(min = 5, max = 20, message = "La contraseña debe contener entre 5 y 20 caracteres")
     @Column(unique = false, length = 20, nullable = false)
     private String contraseña;
-
-    @OneToMany(mappedBy = "cliente")
-    @ToString.Exclude
-    @JsonIgnore
-    private List<Reservas> reservas;
 }
