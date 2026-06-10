@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.ubicacion.ubicaciones.DTO.ubicacionDTO;
+import com.ubicacion.ubicaciones.DTO.UbicacionDTO;
 import com.ubicacion.ubicaciones.model.Ubicacion;
 import com.ubicacion.ubicaciones.repository.UbicacionRepository;
 
@@ -43,7 +43,7 @@ public class UbicacionService {
                         new RuntimeException("Ubicación no encontrada"));
     }
 
-    public Ubicacion guardar(ubicacionDTO dto) {
+    public Ubicacion guardar(UbicacionDTO dto) {
 
         logger.info("Guardando ubicación");
 
@@ -60,7 +60,7 @@ public class UbicacionService {
         return repository.save(ubicacion);
     }
 
-    public Ubicacion actualizar(Integer id, ubicacionDTO dto) {
+    public Ubicacion actualizar(Integer id, UbicacionDTO dto) {
 
         logger.info("Actualizando ubicación");
 

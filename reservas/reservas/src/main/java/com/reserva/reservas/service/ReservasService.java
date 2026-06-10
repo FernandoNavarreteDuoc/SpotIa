@@ -6,14 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.reserva.reservas.DTO.reservasDTO;
-import com.reserva.reservas.model.reservas;
-import com.reserva.reservas.repository.ReservasRepository;
+import com.reserva.reservas.DTO.ReservaDTO;
+import com.reserva.reservas.model.Reserva;
+import com.reserva.reservas.repository.ReservaRepository;
 
 @Service
 public class ReservasService {
 
-    private final ReservasRepository repository;
+    private final ReservaRepository repository;
     private final ClienteRepository clienteRepo;
     private final LocalRepository localRepo;
     private final ServicioRepository servicioRepo;
@@ -24,7 +24,7 @@ public class ReservasService {
             LoggerFactory.getLogger(ReservasService.class);
 
     public ReservasService(
-            ReservasRepository repository,
+            ReservaRepository repository,
             ClienteRepository clienteRepo,
             LocalRepository localRepo,
             ServicioRepository servicioRepo,
@@ -39,14 +39,14 @@ public class ReservasService {
         this.estadoRepo = estadoRepo;
     }
 
-    public List<Reservas> listar() {
+    public List<Reserva> listar() {
 
         logger.info("Listando reservas");
 
         return repository.findAll();
     }
 
-    public Reservas buscarPorId(Integer id) {
+    public Reserva buscarPorId(Integer id) {
 
         logger.info("Buscando reserva");
 
@@ -55,7 +55,7 @@ public class ReservasService {
                         new RuntimeException("Reserva no encontrada"));
     }
 
-    public Reservas guardar(reservasDTO dto) {
+    public Reserva guardar(ReservaDTO dto) {
 
         logger.info("Guardando reserva");
 
@@ -79,7 +79,7 @@ public class ReservasService {
                 .orElseThrow(() ->
                         new RuntimeException("Estado no encontrado"));
 
-        Reservas reserva = new Reservas();
+        Reserva reserva = new Reserva();
 
         reserva.setFechaReserva(dto.getFechaReserva());
         reserva.setHoraReserva(dto.getHoraReserva());
@@ -95,11 +95,11 @@ public class ReservasService {
         return repository.save(reserva);
     }
 
-    public Reservas actualizar(Integer id, reservasDTO dto) {
+    public Reserva actualizar(Integer id, ReservaDTO dto) {
 
         logger.info("Actualizando reserva");
 
-        Reservas reserva = buscarPorId(id);
+        Reserva reserva = buscarPorId(id);
 
         Cliente cliente = clienteRepo.findById(dto.getRutCliente())
                 .orElseThrow(() ->

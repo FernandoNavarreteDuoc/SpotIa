@@ -7,8 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.servicio.servicios.DTO.servicioDTO;
-import com.servicio.servicios.model.servicio;
+import com.servicio.servicios.DTO.ServicioDTO;
+import com.servicio.servicios.model.Servicio;
 import com.servicio.servicios.repository.ServicioRepository;
 
 @Service
@@ -24,14 +24,14 @@ public class ServicioService {
         this.repository = repository;
     }
 
-    public List<servicio> listar() {
+    public List<Servicio> listar() {
 
         logger.info("Listando servicios");
 
         return repository.findAll();
     }
 
-    public servicio buscarPorId(Integer id) {
+    public Servicio buscarPorId(Integer id) {
 
         logger.info("Buscando servicio");
 
@@ -40,11 +40,11 @@ public class ServicioService {
                         new RuntimeException("Servicio no encontrado"));
     }
 
-    public servicio guardar(servicioDTO dto) {
+    public Servicio guardar(ServicioDTO dto) {
 
         logger.info("Guardando servicio");
 
-        servicio servicio = new servicio();
+        Servicio servicio = new Servicio();
 
         servicio.setNombre(dto.getNombre());
         servicio.setDescripcion(dto.getDescripcion());
@@ -53,11 +53,11 @@ public class ServicioService {
         return repository.save(servicio);
     }
 
-    public servicio actualizar(Integer id, servicioDTO dto) {
+    public Servicio actualizar(Integer id, ServicioDTO dto) {
 
         logger.info("Actualizando servicio");
 
-        servicio servicio = buscarPorId(id);
+        Servicio servicio = buscarPorId(id);
 
         servicio.setNombre(dto.getNombre());
         servicio.setDescripcion(dto.getDescripcion());

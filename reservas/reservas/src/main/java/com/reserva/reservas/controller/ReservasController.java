@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reserva.reservas.DTO.reservasDTO;
-import com.reserva.reservas.model.Reservas;
+import com.reserva.reservas.DTO.ReservaDTO;
+import com.reserva.reservas.model.Reserva;
 import com.reserva.reservas.service.ReservasService;
 
 import jakarta.validation.Valid;
@@ -31,21 +31,21 @@ public class ReservasController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Reservas>> listar() {
+    public ResponseEntity<List<Reserva>> listar() {
 
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reservas> buscar(
+    public ResponseEntity<Reserva> buscar(
             @PathVariable Integer id) {
 
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Reservas> guardar(
-            @Valid @RequestBody reservasDTO dto) {
+    public ResponseEntity<Reserva> guardar(
+            @Valid @RequestBody ReservaDTO dto) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -53,9 +53,9 @@ public class ReservasController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Reservas> actualizar(
+    public ResponseEntity<Reserva> actualizar(
             @PathVariable Integer id,
-            @Valid @RequestBody reservasDTO dto) {
+            @Valid @RequestBody ReservaDTO dto) {
 
         return ResponseEntity.ok(
                 service.actualizar(id, dto));

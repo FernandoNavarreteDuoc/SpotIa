@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import lombok.Data;
 
 @Data
-public class reservasDTO {
+public class ReservaDTO {
 
     private Integer idReserva;
     private LocalDate fechaReserva;
