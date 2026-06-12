@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ubicacion.ubicaciones.DTO.UbicacionDTO;
+import com.ubicacion.ubicaciones.DTO.ubicacionDTO;
 import com.ubicacion.ubicaciones.model.Ubicacion;
 import com.ubicacion.ubicaciones.service.UbicacionService;
 
@@ -45,7 +45,7 @@ public class UbicacionController {
 
     @PostMapping
     public ResponseEntity<Ubicacion> guardar(
-            @Valid @RequestBody UbicacionDTO dto) {
+            @Valid @RequestBody ubicacionDTO dto) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -55,7 +55,7 @@ public class UbicacionController {
     @PutMapping("/{id}")
     public ResponseEntity<Ubicacion> actualizar(
             @PathVariable Integer id,
-            @Valid @RequestBody UbicacionDTO dto) {
+            @Valid @RequestBody ubicacionDTO dto) {
 
         return ResponseEntity.ok(
                 service.actualizar(id, dto));

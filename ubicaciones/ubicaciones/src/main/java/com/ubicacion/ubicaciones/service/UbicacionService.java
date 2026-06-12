@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.ubicacion.ubicaciones.DTO.UbicacionDTO;
+import com.ubicacion.ubicaciones.DTO.ubicacionDTO;
 import com.ubicacion.ubicaciones.model.Ubicacion;
 import com.ubicacion.ubicaciones.repository.UbicacionRepository;
 
@@ -14,17 +14,13 @@ import com.ubicacion.ubicaciones.repository.UbicacionRepository;
 public class UbicacionService {
 
     private final UbicacionRepository repository;
-    private final ComunaRepository comunaRepo;
 
     private static final Logger logger =
             LoggerFactory.getLogger(UbicacionService.class);
 
-    public UbicacionService(
-            UbicacionRepository repository,
-            ComunaRepository comunaRepo) {
+    public UbicacionService(UbicacionRepository repository) {
 
         this.repository = repository;
-        this.comunaRepo = comunaRepo;
     }
 
     public List<Ubicacion> listar() {
@@ -43,36 +39,26 @@ public class UbicacionService {
                         new RuntimeException("Ubicación no encontrada"));
     }
 
-    public Ubicacion guardar(UbicacionDTO dto) {
+    public Ubicacion guardar(ubicacionDTO dto) {
 
         logger.info("Guardando ubicación");
-
-        Comuna comuna = comunaRepo.findById(dto.getIdComuna())
-                .orElseThrow(() ->
-                        new RuntimeException("Comuna no encontrada"));
 
         Ubicacion ubicacion = new Ubicacion();
 
         ubicacion.setDireccion(dto.getDireccion());
         ubicacion.setReferencia(dto.getReferencia());
-        ubicacion.setComuna(comuna);
 
         return repository.save(ubicacion);
     }
 
-    public Ubicacion actualizar(Integer id, UbicacionDTO dto) {
+    public Ubicacion actualizar(Integer id, ubicacionDTO dto) {
 
         logger.info("Actualizando ubicación");
 
         Ubicacion ubicacion = buscarPorId(id);
 
-        Comuna comuna = comunaRepo.findById(dto.getIdComuna())
-                .orElseThrow(() ->
-                        new RuntimeException("Comuna no encontrada"));
-
         ubicacion.setDireccion(dto.getDireccion());
         ubicacion.setReferencia(dto.getReferencia());
-        ubicacion.setComuna(comuna);
 
         return repository.save(ubicacion);
     }
