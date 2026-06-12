@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.reserva.reservas.DTO.ReservaDTO;
 import com.reserva.reservas.model.Reserva;
-import com.reserva.reservas.service.ReservasService;
+import com.reserva.reservas.service.ReservaService;
 
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/reservas")
-public class ReservasController {
+public class ReservaController {
 
-    private final ReservasService service;
+    private final ReservaService service;
 
-    public ReservasController(ReservasService service) {
+    public ReservaController(ReservaService service) {
 
         this.service = service;
     }

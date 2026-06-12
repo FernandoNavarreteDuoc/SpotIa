@@ -11,7 +11,7 @@ import com.reserva.reservas.model.Reserva;
 import com.reserva.reservas.repository.ReservaRepository;
 
 @Service
-public class ReservasService {
+public class ReservaService {
 
     private final ReservaRepository repository;
     private final ClienteRepository clienteRepo;
@@ -21,9 +21,9 @@ public class ReservasService {
     private final EstadoRepository estadoRepo;
 
     private static final Logger logger =
-            LoggerFactory.getLogger(ReservasService.class);
+            LoggerFactory.getLogger(ReservaService.class);
 
-    public ReservasService(
+    public ReservaService(
             ReservaRepository repository,
             ClienteRepository clienteRepo,
             LocalRepository localRepo,
