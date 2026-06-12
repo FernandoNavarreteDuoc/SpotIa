@@ -7,14 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.servicio.servicios.model.Servicio;
-
+import com.servicio.servicios.model.servicio;
 
 @Repository
-public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
+public interface ServicioRepository extends JpaRepository<servicio, Integer> {
 
-    @Query("SELECT s FROM Servicio s WHERE s.nombre LIKE %:nombre%")
-    List<Servicio> buscarPorNombre(
+    @Query("SELECT s FROM servicio s WHERE s.nombre LIKE %:nombre%")
+    List<servicio> buscarPorNombre(
             @Param("nombre") String nombre
     );
 
