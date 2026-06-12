@@ -59,6 +59,29 @@ public class ReservaService {
         return repository.save(reserva);
     }
 
+    public ReservaDTO buscarPorCliente(String rutCliente) {
+        Reserva reserva = repository.findByRutCliente(rutCliente);
+        if (reserva == null) {
+            return null;
+        }
+        return convertirADTO(reserva);
+    }
+
+    private ReservaDTO convertirADTO(Reserva r) {
+        if (r == null) return null;
+
+        ReservaDTO dto = new ReservaDTO();
+        dto.setCantidadPersonas(r.getCantidadPersonas());
+        dto.setFechaReserva(r.getFechaReserva());
+        dto.setHoraReserva(r.getHoraReserva());
+        dto.setIdEstado(r.getIdEstado());
+        dto.setIdLocal(r.getIdLocal());
+        dto.setIdMetodoPago(r.getIdMetodoPago());
+        dto.setIdReserva(r.getIdReserva());
+        dto.setTotal(r.getTotal());
+        return dto;
+    }
+
     public Reserva actualizar(Integer id, ReservaDTO dto) {
 
         logger.info("Actualizando reserva");
