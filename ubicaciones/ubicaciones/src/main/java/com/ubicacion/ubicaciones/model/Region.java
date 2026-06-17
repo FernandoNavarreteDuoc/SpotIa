@@ -1,4 +1,4 @@
-package com.region.regiones.model;
+package com.ubicacion.ubicaciones.model;
 
 import java.util.List;
 
