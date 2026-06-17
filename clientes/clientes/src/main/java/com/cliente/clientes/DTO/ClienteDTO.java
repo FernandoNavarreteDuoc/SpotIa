@@ -10,5 +10,6 @@ public class ClienteDTO {
     private Integer telefono;
     private String correo;
     private String contraseña;
+    private ReservaExternaDTO reserva;
 
 }

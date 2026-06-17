@@ -3,7 +3,7 @@ package com.ubicacion.ubicaciones.DTO;
 import lombok.Data;
 
 @Data
-public class UbicacionDTO {
+public class ubicacionDTO {
 
     private Integer idUbicacion;
     private String direccion;

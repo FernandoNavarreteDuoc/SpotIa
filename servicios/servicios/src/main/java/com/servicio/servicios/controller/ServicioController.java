@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.servicio.servicios.DTO.ServicioDTO;
-import com.servicio.servicios.model.Servicio;
+import com.servicio.servicios.DTO.servicioDTO;
+import com.servicio.servicios.model.servicio;
 import com.servicio.servicios.service.ServicioService;
 
 import jakarta.validation.Valid;
@@ -31,21 +31,21 @@ public class ServicioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Servicio>> listar() {
+    public ResponseEntity<List<servicio>> listar() {
 
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Servicio> buscar(
+    public ResponseEntity<servicio> buscar(
             @PathVariable Integer id) {
 
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Servicio> guardar(
-            @Valid @RequestBody ServicioDTO dto) {
+    public ResponseEntity<servicio> guardar(
+            @Valid @RequestBody servicioDTO dto) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -53,9 +53,9 @@ public class ServicioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Servicio> actualizar(
+    public ResponseEntity<servicio> actualizar(
             @PathVariable Integer id,
-            @Valid @RequestBody ServicioDTO dto) {
+            @Valid @RequestBody servicioDTO dto) {
 
         return ResponseEntity.ok(
                 service.actualizar(id, dto));

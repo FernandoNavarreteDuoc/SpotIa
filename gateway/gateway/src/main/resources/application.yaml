@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: reserva-service
+              uri: lb://reservas
+              predicates:
+                - Path=/api/v1/reservas/**
+            - id: cliente-service
+              uri: lb://clientes
+              predicates:
+                - Path=/api/v1/clientes/**
+            - id: local-service
+              uri: lb://locales
+              predicates:
+                - Path=/api/v1/locales/**
+            - id: servicio-service
+              uri: lb://servicios
+              predicates:
+                - Path=/api/v1/servicios/**
+            - id: metodopago-service
+              uri: lb://metodospago
+              predicates:
+                - Path=/api/v1/metodospago/**
+            - id: estado-service
+              uri: lb://estados
+              predicates:
+                - Path=/api/v1/estados/**
