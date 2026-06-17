@@ -38,4 +38,10 @@ public class Estado {
     @Size(min = 5, max = 100, message = "La descripción debe contener entre 5 y 100 caracteres")
     @Column(unique = false, length = 100, nullable = false)
     private String descripcion;
+
+    @OneToMany(mappedBy = "estado")
+    @ToString.Exclude
+    @JsonIgnore
+    private List<Reserva> reservas;
+
 }

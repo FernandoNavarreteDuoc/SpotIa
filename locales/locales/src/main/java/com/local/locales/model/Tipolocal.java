@@ -1,16 +1,22 @@
 package com.local.locales.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -31,4 +37,10 @@ public class Tipolocal {
     @Size(min = 5, max = 100, message = "La descripción debe contener entre 5 y 100 caracteres")
     @Column(unique = false, length = 100, nullable = false)
     private String descripcion;
+
+    @OneToMany(mappedBy = "tipoLocal")
+    @ToString.Exclude
+    @JsonIgnore
+    private List<Local> locales;
+
 }
