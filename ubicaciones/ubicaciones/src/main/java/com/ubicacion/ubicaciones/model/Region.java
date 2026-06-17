@@ -34,6 +34,8 @@ public class Region {
     @Column(unique = false, length = 50, nullable = false)
     private String nombre;
 
-    // Relación eliminada para microservicio independiente
-    // Las comunas viven en su propio microservicio
+    @OneToMany(mappedBy = "region")
+    @ToString.Exclude
+    @JsonIgnore
+    private List<Comuna> comunas;
 }
