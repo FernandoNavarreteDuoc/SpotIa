@@ -17,5 +17,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
             @Param("total") Integer total
     );
     Reserva findByRutCliente (String rutCliente);
+    Reserva findByIdLocal(Integer idLocal);
+    Reserva findByIdServicio(Integer idServicio);
 
 }
