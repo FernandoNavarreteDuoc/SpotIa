@@ -21,7 +21,7 @@ spring:
               uri: lb://locales
               predicates:
                 - Path=/api/v1/locales/**
-            - id: servicio-service
-              uri: lb://servicios
+            - id: ubicacion-service
+              uri: lb://ubicaciones
               predicates:
-                - Path=/api/v1/servicios/**
+                - Path=/api/v1/ubicaciones/**
