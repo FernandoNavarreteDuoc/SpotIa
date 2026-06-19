@@ -23,6 +23,19 @@ public class ReservaService {
         this.repository = repository;
     }
 
+    public ReservaDTO buscarPorLocal(Integer idLocal) {
+        Reserva reserva = repository.findByIdLocal(idLocal);
+        if (reserva == null) return null;
+        return convertirADTO(reserva);
+}
+
+    public ReservaDTO buscarPorServicio(Integer idServicio) {
+        Reserva reserva = repository.findByIdServicio(idServicio);
+        if (reserva == null) return null;
+        return convertirADTO(reserva);
+}
+
+
     public List<Reserva> listar() {
 
         logger.info("Listando reservas");

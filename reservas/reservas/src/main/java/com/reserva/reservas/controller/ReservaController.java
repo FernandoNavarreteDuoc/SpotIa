@@ -36,6 +36,29 @@ public class ReservaController {
         return ResponseEntity.ok(service.listar());
     }
 
+    @GetMapping("/buscar-por-cliente/{rutCliente}")
+    public ResponseEntity<ReservaDTO> buscarPorCliente(@PathVariable String rutCliente) {
+        ReservaDTO dto = service.buscarPorCliente(rutCliente);
+        if (dto == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(dto);
+    }
+
+
+    @GetMapping("/buscar-por-local/{idLocal}")
+    public ResponseEntity<ReservaDTO> buscarPorLocal(@PathVariable Integer idLocal) {
+        ReservaDTO dto = service.buscarPorLocal(idLocal);
+        if (dto == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(dto);
+    }
+
+
+    @GetMapping("/buscar-por-servicio/{idServicio}")
+    public ResponseEntity<ReservaDTO> buscarPorServicio(@PathVariable Integer idServicio) {
+        ReservaDTO dto = service.buscarPorServicio(idServicio);
+        if (dto == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(dto);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Reserva> buscar(
             @PathVariable Integer id) {
@@ -69,4 +92,9 @@ public class ReservaController {
 
         return ResponseEntity.noContent().build();
     }
+
+    
+
+
+
 }
