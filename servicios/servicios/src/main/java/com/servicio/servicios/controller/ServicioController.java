@@ -1,5 +1,4 @@
-package com.reserva.reservas.controller;
-
+package com.servicio.servicios.controller;
 
 import java.util.List;
 
@@ -14,39 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reserva.reservas.DTO.MetodopagoDTO;
-import com.reserva.reservas.model.Metodopago;
-import com.reserva.reservas.service.MetodopagoService;
+import com.servicio.servicios.DTO.servicioDTO;
+import com.servicio.servicios.model.servicio;
+import com.servicio.servicios.service.ServicioService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/metodospago") 
-public class MetodopagoController {
+@RequestMapping("/api/v1/servicios")
+public class ServicioController {
 
-    private final MetodopagoService service;
+    private final ServicioService service;
 
-    public MetodopagoController(MetodopagoService service) {
+    public ServicioController(ServicioService service) {
 
         this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<Metodopago>> listar() {
+    public ResponseEntity<List<servicio>> listar() {
 
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Metodopago> buscar(
+    public ResponseEntity<servicio> buscar(
             @PathVariable Integer id) {
 
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Metodopago> guardar(
-            @Valid @RequestBody MetodopagoDTO dto) {
+    public ResponseEntity<servicio> guardar(
+            @Valid @RequestBody servicioDTO dto) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -54,9 +53,9 @@ public class MetodopagoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Metodopago> actualizar(
+    public ResponseEntity<servicio> actualizar(
             @PathVariable Integer id,
-            @Valid @RequestBody MetodopagoDTO dto) {
+            @Valid @RequestBody servicioDTO dto) {
 
         return ResponseEntity.ok(
                 service.actualizar(id, dto));
@@ -70,4 +69,10 @@ public class MetodopagoController {
 
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/{id}/detalle")
+    public ResponseEntity<servicioDTO> detalle(@PathVariable Integer id) {
+        servicio s = service.buscarPorId(id);
+        return ResponseEntity.ok(service.convertirADTO(s));
+    }
+
 }

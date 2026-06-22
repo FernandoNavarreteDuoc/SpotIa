@@ -69,4 +69,12 @@ private final ClienteService service;
 
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{rut}/detalle")
+    public ResponseEntity<ClienteDTO> detalle(
+            @PathVariable String rut) {
+
+        Cliente cliente = service.buscarPorRut(rut);
+        return ResponseEntity.ok(service.convertirADTO(cliente));
+    }
 }

@@ -13,15 +13,53 @@ spring:
               uri: lb://reservas
               predicates:
                 - Path=/api/v1/reservas/**
+
+            - id: metodopago-service
+              uri: lb://reservas
+              predicates:
+                - Path=/api/v1/metodospago/**
+
+            - id: estado-service
+              uri: lb://reservas
+              predicates:
+                - Path=/api/v1/estados/**
+
             - id: cliente-service
               uri: lb://clientes
               predicates:
                 - Path=/api/v1/clientes/**
+
             - id: local-service
               uri: lb://locales
               predicates:
                 - Path=/api/v1/locales/**
+
+            - id: tipolocal-service
+              uri: lb://locales
+              predicates:
+                - Path=/api/v1/tipo_local/**
+
+            - id: servicio-service
+              uri: lb://locales
+              predicates:
+                - Path=/api/v1/servicios/**
+
             - id: ubicacion-service
               uri: lb://ubicaciones
               predicates:
                 - Path=/api/v1/ubicaciones/**
+
+            - id: comuna-service
+              uri: lb://ubicaciones
+              predicates:
+                - Path=/api/v1/comunas/**
+
+            - id: region-service
+              uri: lb://ubicaciones
+              predicates:
+                - Path=/api/v1/regiones/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

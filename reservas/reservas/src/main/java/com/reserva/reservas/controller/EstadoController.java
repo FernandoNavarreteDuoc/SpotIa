@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.reserva.reservas.DTO.EstadoDTO;
 import com.reserva.reservas.model.Estado;
@@ -19,34 +19,29 @@ import com.reserva.reservas.service.EstadoService;
 
 import jakarta.validation.Valid;
 
-@ResponseStatus
+@RestController
 @RequestMapping("/api/v1/estados")
 public class EstadoController {
 
     private final EstadoService service;
 
     public EstadoController(EstadoService service) {
-
         this.service = service;
     }
 
     @GetMapping
     public ResponseEntity<List<Estado>> listar() {
-
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Estado> buscar(
-            @PathVariable Integer id) {
-
+    public ResponseEntity<Estado> buscar(@PathVariable Integer id) {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
     public ResponseEntity<Estado> guardar(
             @Valid @RequestBody EstadoDTO dto) {
-
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(service.guardar(dto));
@@ -56,17 +51,12 @@ public class EstadoController {
     public ResponseEntity<Estado> actualizar(
             @PathVariable Integer id,
             @Valid @RequestBody EstadoDTO dto) {
-
-        return ResponseEntity.ok(
-                service.actualizar(id, dto));
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(
-            @PathVariable Integer id) {
-
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         service.eliminar(id);
-
         return ResponseEntity.noContent().build();
     }
 }
