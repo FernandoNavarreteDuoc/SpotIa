@@ -24,7 +24,6 @@ public class ClienteService {
 
     @Autowired
     private WebClient.Builder webClientBuilder;
-    
     private static final Logger logger =
             LoggerFactory.getLogger(ClienteService.class);
 
@@ -95,8 +94,7 @@ public class ClienteService {
 
         try {
 
-            ReservaExternaDTO reservaRecuperada =
-                    webClientBuilder.build()
+            ReservaExternaDTO reservaRecuperada = webClientBuilder.build()
                     .get()
                     .uri("http://localhost:8080/api/v1/reservas/buscar-por-cliente/" + cliente.getRut())
                     .retrieve()
