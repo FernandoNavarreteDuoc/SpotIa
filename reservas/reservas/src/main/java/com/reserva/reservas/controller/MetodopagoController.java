@@ -21,7 +21,7 @@ import com.reserva.reservas.service.MetodopagoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/metodopago")
+@RequestMapping("/api/v1/metodospago") 
 public class MetodopagoController {
 
     private final MetodopagoService service;

@@ -26,50 +26,46 @@ public class ReservaController {
     private final ReservaService service;
 
     public ReservaController(ReservaService service) {
-
         this.service = service;
     }
 
     @GetMapping
     public ResponseEntity<List<Reserva>> listar() {
-
         return ResponseEntity.ok(service.listar());
     }
 
-    @GetMapping("/buscar-por-cliente/{rutCliente}")
-    public ResponseEntity<ReservaDTO> buscarPorCliente(@PathVariable String rutCliente) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Reserva> buscar(@PathVariable Integer id) {
+        return ResponseEntity.ok(service.buscarPorId(id));
+    }
+
+    @GetMapping("/buscarporcliente/{rutCliente}")
+    public ResponseEntity<ReservaDTO> buscarPorCliente(
+            @PathVariable String rutCliente) {
         ReservaDTO dto = service.buscarPorCliente(rutCliente);
         if (dto == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(dto);
     }
 
-
-    @GetMapping("/buscar-por-local/{idLocal}")
-    public ResponseEntity<ReservaDTO> buscarPorLocal(@PathVariable Integer idLocal) {
+    @GetMapping("/buscarporlocal/{idLocal}")
+    public ResponseEntity<ReservaDTO> buscarPorLocal(
+            @PathVariable Integer idLocal) {
         ReservaDTO dto = service.buscarPorLocal(idLocal);
         if (dto == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(dto);
     }
 
-
-    @GetMapping("/buscar-por-servicio/{idServicio}")
-    public ResponseEntity<ReservaDTO> buscarPorServicio(@PathVariable Integer idServicio) {
+    @GetMapping("/buscarporservicio/{idServicio}")
+    public ResponseEntity<ReservaDTO> buscarPorServicio(
+            @PathVariable Integer idServicio) {
         ReservaDTO dto = service.buscarPorServicio(idServicio);
         if (dto == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(dto);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Reserva> buscar(
-            @PathVariable Integer id) {
-
-        return ResponseEntity.ok(service.buscarPorId(id));
-    }
-
     @PostMapping
     public ResponseEntity<Reserva> guardar(
             @Valid @RequestBody ReservaDTO dto) {
-
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(service.guardar(dto));
@@ -79,22 +75,12 @@ public class ReservaController {
     public ResponseEntity<Reserva> actualizar(
             @PathVariable Integer id,
             @Valid @RequestBody ReservaDTO dto) {
-
-        return ResponseEntity.ok(
-                service.actualizar(id, dto));
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(
-            @PathVariable Integer id) {
-
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         service.eliminar(id);
-
         return ResponseEntity.noContent().build();
     }
-
-    
-
-
-
 }

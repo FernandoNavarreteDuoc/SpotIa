@@ -69,4 +69,10 @@ public class ServicioController {
 
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/{id}/detalle")
+    public ResponseEntity<servicioDTO> detalle(@PathVariable Integer id) {
+        servicio s = service.buscarPorId(id);
+        return ResponseEntity.ok(service.convertirADTO(s));
+    }
+
 }

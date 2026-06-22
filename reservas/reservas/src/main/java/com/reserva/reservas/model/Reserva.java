@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Min;
@@ -45,7 +43,7 @@ public class Reserva {
     @Min(value = 1, message = "El total debe ser mayor a 0")
     private Integer total;
 
-    @NotBlank(message = "El rut del cliente no puede ser nulo")
+    @NotBlank(message = "El rut del cliente no puede ser vacío")
     @Column(name = "rut_cliente", nullable = false)
     private String rutCliente;
 
@@ -64,13 +62,4 @@ public class Reserva {
     @NotNull(message = "El id del estado no puede ser nulo")
     @Column(name = "id_estado", nullable = false)
     private Integer idEstado;
-
-    @ManyToOne
-    @JoinColumn(name = "id_metodo_pago")
-    private Metodopago metodoPago;
-
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private Estado estado;
-
 }
