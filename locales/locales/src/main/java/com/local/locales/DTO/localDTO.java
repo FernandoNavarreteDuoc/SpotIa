@@ -12,4 +12,6 @@ public class localDTO {
     private Integer idTipoLocal;
     private Integer idUbicacion;
 
+    private ReservaExternaDTO reserva;
+
 }

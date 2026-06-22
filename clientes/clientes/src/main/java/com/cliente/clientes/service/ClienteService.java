@@ -96,7 +96,7 @@ public class ClienteService {
 
             ReservaExternaDTO reservaRecuperada = webClientBuilder.build()
                     .get()
-                    .uri("http://localhost:8080/api/v1/reservas/buscar-por-cliente/" + cliente.getRut())
+                    .uri("http://localhost:8080/api/v1/reservas/buscarporcliente/" + cliente.getRut())
                     .retrieve()
                     .onStatus(
                             HttpStatusCode::is4xxClientError,
