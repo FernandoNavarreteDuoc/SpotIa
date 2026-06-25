@@ -2,8 +2,6 @@ package com.cliente.clientes.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.apache.hc.core5.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
