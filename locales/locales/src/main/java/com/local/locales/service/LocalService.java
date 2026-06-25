@@ -86,10 +86,7 @@ public class LocalService {
                     .get()
                     .uri("http://localhost:8080/api/v1/reservas/buscarporlocal/" + local.getIdLocal())
                     .retrieve()
-                    .onStatus(
-                            HttpStatusCode::is4xxClientError,
-                            response -> Mono.empty()
-                    )
+                    .onStatus(HttpStatusCode::is4xxClientError, response -> Mono.empty())
                     .bodyToMono(ReservaExternaDTO.class)
                     .block();
 
