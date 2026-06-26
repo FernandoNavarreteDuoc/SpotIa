@@ -10,4 +10,6 @@ public class servicioDTO {
     private String descripcion;
     private Integer precio;
 
+    private ReservaExternaDTO reserva;
+
 }

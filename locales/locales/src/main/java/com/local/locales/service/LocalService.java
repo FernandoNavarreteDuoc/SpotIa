@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class LocalService {
 
-        @Autowired
+    @Autowired
     private WebClient.Builder webClientBuilder;
 
     private final LocalRepository repository;
