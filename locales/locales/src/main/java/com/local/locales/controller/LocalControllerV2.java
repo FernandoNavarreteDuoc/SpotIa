@@ -71,7 +71,7 @@ public class LocalControllerV2 {
     }
 
     @DeleteMapping(value = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
-    public ResponseEntity<?> eliminar(@PathVariable Integer id) {
+    public ResponseEntity<EntityModel<Local>> eliminar(@PathVariable Integer id) {
         service.eliminar(id);
         return ResponseEntity.noContent().build();
     }
