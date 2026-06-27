@@ -69,4 +69,11 @@ public class UbicacionService {
 
         repository.deleteById(id);
     }
+
+
+
+
+
+
+    
 }

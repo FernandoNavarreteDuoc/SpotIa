@@ -92,39 +92,29 @@ public class ReservaServiceTest {
         when(repository.save(any(Reserva.class))).thenReturn(reserva);
         // When
         Reserva resultado = service.guardar(dto);
-        // Then
         assertNotNull(resultado);
         assertEquals(200000, resultado.getTotal());
     }
 
     @Test
     void testBuscarPorCliente() {
-        // Given
         when(repository.findByRutCliente("12345678-9")).thenReturn(crearReserva());
-        // When
         ReservaDTO dto = service.buscarPorCliente("12345678-9");
-        // Then
         assertNotNull(dto);
         assertEquals("12345678-9", dto.getRutCliente());
     }
 
     @Test
     void testBuscarPorClienteNoExiste() {
-        // Given
         when(repository.findByRutCliente("99999999-9")).thenReturn(null);
-        // When
         ReservaDTO dto = service.buscarPorCliente("99999999-9");
-        // Then
         assertNull(dto);
     }
 
     @Test
     void testEliminar() {
-        // Given
         doNothing().when(repository).deleteById(1);
-        // When
         service.eliminar(1);
-        // Then
         verify(repository, times(1)).deleteById(1);
     }
 }
