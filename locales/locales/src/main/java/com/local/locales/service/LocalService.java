@@ -84,8 +84,7 @@ public class LocalService {
 
             ReservaExternaDTO reservaRecuperada = webClientBuilder.build()
                     .get()
-                    .uri("http://localhost:8080/api/v1/reservas/buscarporlocal/" + local.getIdLocal())
-                    .retrieve()
+                    .uri("http://reservas/api/v1/reservas/buscarporlocal/" + local.getIdLocal())                    .retrieve()
                     .onStatus(HttpStatusCode::is4xxClientError, response -> Mono.empty())
                     .bodyToMono(ReservaExternaDTO.class)
                     .block();

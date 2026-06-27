@@ -1,15 +1,10 @@
 package com.local.locales.model;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -43,9 +38,4 @@ public class servicio {
     @NotNull(message = "El precio no puede ser nulo")
     @Min(value = 1, message = "El precio debe ser mayor a 0")
     private Integer precio;
-
-    @ManyToMany(mappedBy = "servicios")
-    @JsonIgnore
-    private List<Local> locales;
-
 }

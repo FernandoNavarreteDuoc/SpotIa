@@ -24,8 +24,8 @@ public class ServicioService {
 
     private final ServicioRepository repository;
 
-     private static final Logger logger =
-            LoggerFactory.getLogger(LocalService.class);
+    private static final Logger logger =
+        LoggerFactory.getLogger(ServicioService.class);
 
     public ServicioService(ServicioRepository repository) {
         this.repository = repository;
@@ -86,7 +86,7 @@ public class ServicioService {
 
             ReservaExternaDTO reservaRecuperada = webClientBuilder.build()
                     .get()
-                    .uri("http://localhost:8080/api/v1/reservas/buscarporservicio/" + servicio.getIdServicio())
+                    .uri("http://reservas/api/v1/reservas/buscarporservicio/" + servicio.getIdServicio())
                     .retrieve()
                     .onStatus(HttpStatusCode::is4xxClientError, response -> Mono.empty())
                     .bodyToMono(ReservaExternaDTO.class)

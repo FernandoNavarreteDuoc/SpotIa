@@ -12,52 +12,67 @@ spring:
             - id: reserva-service
               uri: lb://reservas
               predicates:
-                - Path=/api/v1/reservas/**
+                - Path=/api/v1/reservas/**, /api/v2/reservas/**, /reservas/api-docs/**
 
             - id: metodopago-service
               uri: lb://reservas
               predicates:
-                - Path=/api/v1/metodospago/**
+                - Path=/api/v1/metodospago/**, /api/v2/metodospago/**
 
             - id: estado-service
               uri: lb://reservas
               predicates:
-                - Path=/api/v1/estados/**
+                - Path=/api/v1/estados/**, /api/v2/estados/**
 
             - id: cliente-service
               uri: lb://clientes
               predicates:
-                - Path=/api/v1/clientes/**
+                - Path=/api/v1/clientes/**, /api/v2/clientes/**, /clientes/api-docs/**
 
             - id: local-service
               uri: lb://locales
               predicates:
-                - Path=/api/v1/locales/**
+                - Path=/api/v1/locales/**, /api/v2/locales/**, /locales/api-docs/**
 
             - id: tipolocal-service
               uri: lb://locales
               predicates:
-                - Path=/api/v1/tipo_local/**
+                - Path=/api/v1/tipo_local/**, /api/v2/tipo_local/**
 
             - id: servicio-service
               uri: lb://locales
               predicates:
-                - Path=/api/v1/servicios/**
+                - Path=/api/v1/servicios/**, /api/v2/servicios/**
 
             - id: ubicacion-service
               uri: lb://ubicaciones
               predicates:
-                - Path=/api/v1/ubicaciones/**
+                - Path=/api/v1/ubicaciones/**, /api/v2/ubicaciones/**, /ubicaciones/api-docs/**
 
             - id: comuna-service
               uri: lb://ubicaciones
               predicates:
-                - Path=/api/v1/comunas/**
+                - Path=/api/v1/comunas/**, /api/v2/comunas/**
 
             - id: region-service
               uri: lb://ubicaciones
               predicates:
-                - Path=/api/v1/regiones/**
+                - Path=/api/v1/regiones/**, /api/v2/regiones/**
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    urls:
+      - name: Clientes
+        url: /clientes/api-docs
+      - name: Reservas
+        url: /reservas/api-docs
+      - name: Locales
+        url: /locales/api-docs
+      - name: Ubicaciones
+        url: /ubicaciones/api-docs
+  api-docs:
+    enabled: true
 
 eureka:
   client:

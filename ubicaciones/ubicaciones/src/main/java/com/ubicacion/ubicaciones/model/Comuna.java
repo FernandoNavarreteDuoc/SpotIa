@@ -1,17 +1,10 @@
 package com.ubicacion.ubicaciones.model;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,7 +12,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -40,14 +32,4 @@ public class Comuna {
     @NotNull(message = "El id de región no puede ser nulo")
     @Column(name = "id_region", nullable = false)
     private Integer idRegion;
-
-    @ManyToOne
-    @JoinColumn(name = "id_region")
-    @NotNull(message = "La región no puede ser nula")
-    private Region region;
-
-    @OneToMany(mappedBy = "comuna")
-    @ToString.Exclude
-    @JsonIgnore
-    private List<Ubicacion> ubicaciones;
 }

@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -39,9 +37,4 @@ public class Ubicacion {
     @NotNull(message = "El id de comuna no puede ser nulo")
     @Column(name = "id_comuna", nullable = false)
     private Integer idComuna;
-
-    @ManyToOne
-    @JoinColumn(name = "id_comuna")
-    @NotNull(message = "La comuna no puede ser nula")
-    private Comuna comuna;
 }
