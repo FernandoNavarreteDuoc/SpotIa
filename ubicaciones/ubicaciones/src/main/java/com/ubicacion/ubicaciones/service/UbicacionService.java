@@ -47,7 +47,7 @@ public class UbicacionService {
 
         ubicacion.setDireccion(dto.getDireccion());
         ubicacion.setReferencia(dto.getReferencia());
-
+        ubicacion.setIdComuna(dto.getIdComuna());
         return repository.save(ubicacion);
     }
 
@@ -59,7 +59,7 @@ public class UbicacionService {
 
         ubicacion.setDireccion(dto.getDireccion());
         ubicacion.setReferencia(dto.getReferencia());
-
+        ubicacion.setIdComuna(dto.getIdComuna());
         return repository.save(ubicacion);
     }
 
