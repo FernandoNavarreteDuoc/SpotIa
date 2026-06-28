@@ -1,0 +1,73 @@
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka/
+server:
+    port: 0
+spring:
+    application:
+        name: ubicaciones
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        password: ''
+        url: jdbc:mysql://localhost:3306/db_spotia_ubicaciones_dev?createDatabaseIfNotExist=true
+        username: root
+    flyway:
+        baseline-on-migrate: true
+        enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    profiles:
+        active: dev
+springdoc:
+    api-docs:
+        enabled: true
+        path: /ubicaciones/api-docs
+    swagger-ui:
+        enabled: true
+        path: /doc/swagger-ui.html
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/db_spotia_ubicaciones_dev?createDatabaseIfNotExist=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/db_spotia_ubicaciones_test?createDatabaseIfNotExist=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/db_spotia_ubicaciones_prod?createDatabaseIfNotExist=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: none

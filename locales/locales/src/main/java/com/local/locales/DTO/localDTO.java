@@ -1,8 +1,11 @@
 package com.local.locales.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class localDTO {
 
     private Integer idLocal;
