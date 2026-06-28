@@ -17,56 +17,49 @@ import com.ubicacion.ubicaciones.DTO.ubicacionDTO;
 import com.ubicacion.ubicaciones.model.Ubicacion;
 import com.ubicacion.ubicaciones.service.UbicacionService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/ubicaciones")
+@Tag(name = "Ubicaciones", description = "Gestión de ubicaciones de SpotIa")
 public class UbicacionController {
 
     private final UbicacionService service;
 
     public UbicacionController(UbicacionService service) {
-
         this.service = service;
     }
 
     @GetMapping
+    @Operation(summary = "Listar todas las ubicaciones", description = "Retorna lista completa de ubicaciones")
     public ResponseEntity<List<Ubicacion>> listar() {
-
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ubicacion> buscar(
-            @PathVariable Integer id) {
-
+    @Operation(summary = "Buscar ubicación por ID", description = "Retorna una ubicación según su ID")
+    public ResponseEntity<Ubicacion> buscar(@PathVariable Integer id) {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Ubicacion> guardar(
-            @Valid @RequestBody ubicacionDTO dto) {
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(service.guardar(dto));
+    @Operation(summary = "Crear ubicación", description = "Registra una nueva ubicación en el sistema")
+    public ResponseEntity<Ubicacion> guardar(@Valid @RequestBody ubicacionDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.guardar(dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ubicacion> actualizar(
-            @PathVariable Integer id,
-            @Valid @RequestBody ubicacionDTO dto) {
-
-        return ResponseEntity.ok(
-                service.actualizar(id, dto));
+    @Operation(summary = "Actualizar ubicación", description = "Modifica los datos de una ubicación existente")
+    public ResponseEntity<Ubicacion> actualizar(@PathVariable Integer id, @Valid @RequestBody ubicacionDTO dto) {
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(
-            @PathVariable Integer id) {
-
+    @Operation(summary = "Eliminar ubicación", description = "Elimina una ubicación por su ID")
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         service.eliminar(id);
-
         return ResponseEntity.noContent().build();
     }
 }
