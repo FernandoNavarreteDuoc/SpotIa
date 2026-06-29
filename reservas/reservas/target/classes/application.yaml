@@ -21,11 +21,9 @@ springdoc:
   api-docs:
     enabled: true
     path: /reservas/api-docs
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
+  packages-to-scan: com.reserva.reservas.controller
   use-management-port: false
-  show-actuator: false
+  override-with-generic-response: true
 
 ---
 

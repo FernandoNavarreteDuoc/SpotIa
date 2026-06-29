@@ -21,11 +21,9 @@ springdoc:
   api-docs:
     enabled: true
     path: /locales/api-docs
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
+  packages-to-scan: com.local.locales.controller
   use-management-port: false
-  show-actuator: false
+  override-with-generic-response: true
 
 ---
 

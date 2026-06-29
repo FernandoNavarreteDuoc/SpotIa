@@ -21,12 +21,9 @@ springdoc:
   api-docs:
     enabled: true
     path: /ubicaciones/api-docs
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
+  packages-to-scan: com.ubicacion.ubicaciones.controller
   use-management-port: false
-  show-actuator: false
-
+  override-with-generic-response: true
 ---
 
 spring:
