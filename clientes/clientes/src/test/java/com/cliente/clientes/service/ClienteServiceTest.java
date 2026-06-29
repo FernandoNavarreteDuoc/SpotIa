@@ -68,7 +68,6 @@ public class ClienteServiceTest {
 
     @Test
     void testGuardar() {
-        // Given
         Cliente cliente = crearCliente();
         ClienteDTO dto = new ClienteDTO();
         dto.setRut("12345678-9");
@@ -78,16 +77,13 @@ public class ClienteServiceTest {
         dto.setCorreo("juan@correo.com");
         dto.setContraseña("pass123");
         when(repository.save(any(Cliente.class))).thenReturn(cliente);
-        // When
         Cliente resultado = service.guardar(dto);
-        // Then
         assertNotNull(resultado);
         assertEquals("Juan Pérez", resultado.getNombre());
     }
 
     @Test
     void testActualizar() {
-        // Given
         Cliente cliente = crearCliente();
         ClienteDTO dto = new ClienteDTO();
         dto.setNombre("Juan Modificado");

@@ -54,22 +54,16 @@ public class ReservaServiceTest {
 
     @Test
     void testListar() {
-        // Given
         when(repository.findAll()).thenReturn(List.of(crearReserva()));
-        // When
         List<Reserva> resultado = service.listar();
-        // Then
         assertNotNull(resultado);
         assertEquals(1, resultado.size());
     }
 
     @Test
     void testBuscarPorId() {
-        // Given
         when(repository.findById(1)).thenReturn(Optional.of(crearReserva()));
-        // When
         Reserva resultado = service.buscarPorId(1);
-        // Then
         assertNotNull(resultado);
         assertEquals("12345678-9", resultado.getRutCliente());
         verify(repository, times(1)).findById(1);
@@ -77,7 +71,6 @@ public class ReservaServiceTest {
 
     @Test
     void testGuardar() {
-        // Given
         Reserva reserva = crearReserva();
         ReservaDTO dto = new ReservaDTO();
         dto.setFechaReserva(LocalDate.of(2026, 7, 1));
@@ -90,7 +83,6 @@ public class ReservaServiceTest {
         dto.setIdMetodoPago(1);
         dto.setIdEstado(1);
         when(repository.save(any(Reserva.class))).thenReturn(reserva);
-        // When
         Reserva resultado = service.guardar(dto);
         assertNotNull(resultado);
         assertEquals(200000, resultado.getTotal());
