@@ -11,6 +11,9 @@ spring:
     baseline-on-migrate: true
   jpa:
     show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 eureka:
   client:
@@ -40,10 +43,8 @@ spring:
     url: jdbc:mysql://localhost:3306/db_spotia_reservas_dev?createDatabaseIfNotExist=true
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
-    show-sql: true
     hibernate:
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
 
 ---
 
