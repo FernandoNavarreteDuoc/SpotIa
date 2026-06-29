@@ -38,7 +38,7 @@ Una vez que todo esté corriendo, el Swagger unificado queda en:
 
 http://localhost:8080/swagger-ui/index.html
 
-**Paso 1** — Copiar el `.mvn` a cada microservicio solo una vez:
+**Paso 1** — Copiar el `.mvn` a cada microservicio solo una vez en el cmd:
 ```
 xcopy .\eureka\eureka\.mvn .\clientes\clientes\.mvn /E /I /Y
 xcopy .\eureka\eureka\.mvn .\reservas\reservas\.mvn /E /I /Y
