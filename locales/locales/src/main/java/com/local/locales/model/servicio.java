@@ -23,6 +23,7 @@ public class servicio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idServicio")
     private Integer idServicio;
 
     @NotBlank(message = "El nombre no puede estar vacío")

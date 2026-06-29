@@ -22,6 +22,7 @@ public class Ubicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idUbicacion")
     private Integer idUbicacion;
 
     @NotBlank(message = "La dirección no puede estar vacía")
@@ -35,6 +36,6 @@ public class Ubicacion {
     private String referencia;
 
     @NotNull(message = "El id de comuna no puede ser nulo")
-    @Column(name = "id_comuna", nullable = false)
+    @Column(name = "idComuna", nullable = false)
     private Integer idComuna;
 }

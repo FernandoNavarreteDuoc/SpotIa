@@ -23,6 +23,7 @@ public class Local {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idLocal")
     private Integer idLocal;
 
     @NotBlank(message = "El nombre no puede estar vacío")

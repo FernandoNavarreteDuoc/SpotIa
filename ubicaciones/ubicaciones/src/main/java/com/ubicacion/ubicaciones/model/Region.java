@@ -21,6 +21,7 @@ public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idRegion")
     private Integer idRegion;
 
     @NotBlank(message = "El nombre no puede estar vacío")
