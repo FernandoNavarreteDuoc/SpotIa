@@ -38,10 +38,6 @@ springdoc:
     path: /ubicaciones/api-docs
   packages-to-scan: com.ubicacion.ubicaciones.controller
   use-management-port: false
-  override-with-generic-response: true
-  servers:
-    - url: http://localhost:8080
-      description: Gateway SpotIa
 
 ---
 

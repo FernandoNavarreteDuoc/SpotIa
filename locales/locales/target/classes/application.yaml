@@ -38,10 +38,6 @@ springdoc:
     path: /locales/api-docs
   packages-to-scan: com.local.locales.controller
   use-management-port: false
-  override-with-generic-response: true
-  servers:
-    - url: http://localhost:8080
-      description: Gateway SpotIa
 
 ---
 

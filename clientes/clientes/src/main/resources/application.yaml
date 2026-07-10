@@ -33,13 +33,9 @@ eureka:
 
 springdoc:
   api-docs:
-    enabled: true
     path: /clientes/api-docs
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
+  packages-to-scan: com.cliente.clientes.controller
   use-management-port: false
-  show-actuator: false
 
 ---
 
