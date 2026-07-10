@@ -21,7 +21,7 @@ services:
 
 
  eureka-server:
-   build: ./eureka
+   build: ./eureka/eureka
    container_name: eureka-server
    ports:
      - "8761:8761"
@@ -36,7 +36,7 @@ services:
 
 
  api-gateway:
-   build: ./gateway
+   build: ./gateway/gateway
    container_name: api-gateway
    ports:
      - "8080:8080"
@@ -51,7 +51,7 @@ services:
 
 
  clientes-service:
-   build: ./clientes
+   build: ./clientes/clientes
    container_name: clientes-service
    environment:
      SPRING_PROFILES_ACTIVE: dev
@@ -68,7 +68,7 @@ services:
 
 
  locales-service:
-   build: ./locales
+   build: ./locales/locales
    container_name: locales-service
    environment:
      SPRING_PROFILES_ACTIVE: dev
@@ -84,7 +84,7 @@ services:
        condition: service_healthy
 
  reservas-service:
-   build: ./reservas
+   build: ./reservas/reservas
    container_name: reservas-service
    environment:
      SPRING_PROFILES_ACTIVE: dev
@@ -100,7 +100,7 @@ services:
        condition: service_healthy
 
  ubicaciones-service:
-   build: ./ubicaciones
+   build: ./ubicaciones/ubicaciones
    container_name: ubicaciones-service
    environment:
      SPRING_PROFILES_ACTIVE: dev
