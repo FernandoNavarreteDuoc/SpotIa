@@ -10,6 +10,9 @@ spring:
     baseline-on-migrate: 'true'
   jpa:
     show-sql: 'true'
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   profiles:
     active: dev
   mvc:

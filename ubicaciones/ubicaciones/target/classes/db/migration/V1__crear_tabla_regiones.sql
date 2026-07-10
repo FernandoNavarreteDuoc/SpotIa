@@ -18,3 +18,4 @@ INSERT INTO regiones (nombre) VALUES ('Ñuble');
 INSERT INTO regiones (nombre) VALUES ('Los Ríos');
 INSERT INTO regiones (nombre) VALUES ('Aysén');
 INSERT INTO regiones (nombre) VALUES ('Magallanes');
+
