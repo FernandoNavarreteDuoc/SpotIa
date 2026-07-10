@@ -10,9 +10,9 @@ services:
    environment:
      MYSQL_ROOT_PASSWORD: ""
      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-     MYSQL_DATABASE: db_imperio_jedis_dev
+     MYSQL_DATABASE: db_spotia
    networks:
-     - network-jedi
+     - network-spotia
    healthcheck:
      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-u", "root"]
      interval: 10s
@@ -26,7 +26,7 @@ services:
    ports:
      - "8761:8761"
    networks:
-     - network-jedi
+     - network-spotia
    healthcheck:
      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
      interval: 15s
@@ -44,22 +44,22 @@ services:
      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
      SPRING_PROFILES_ACTIVE: dev
    networks:
-     - network-jedi
+     - network-spotia
    depends_on:
      eureka-server:
        condition: service_healthy
 
 
- jedis-service:
-   build: ./jedis
-   container_name: jedis-service
+ clientes-service:
+   build: ./clientes
+   container_name: clientes-service
    environment:
      SPRING_PROFILES_ACTIVE: dev
      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
      DATABASE_HOST: mariadb-db
      GATEWAY_URL: http://localhost:8080
    networks:
-     - network-jedi
+     - network-spotia
    depends_on:
      mariadb-db:
        condition: service_healthy
@@ -67,16 +67,48 @@ services:
        condition: service_healthy
 
 
- sables-service:
-   build: ./sables
-   container_name: sables-service
+ locales-service:
+   build: ./locales
+   container_name: locales-service
    environment:
      SPRING_PROFILES_ACTIVE: dev
      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
      DATABASE_HOST: mariadb-db
      GATEWAY_URL: http://localhost:8080
    networks:
-     - network-jedi
+     - network-spotia
+   depends_on:
+     mariadb-db:
+       condition: service_healthy
+     eureka-server:
+       condition: service_healthy
+
+ reservas-service:
+   build: ./reservas
+   container_name: reservas-service
+   environment:
+     SPRING_PROFILES_ACTIVE: dev
+     EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
+     DATABASE_HOST: mariadb-db
+     GATEWAY_URL: http://localhost:8080
+   networks:
+     - network-spotia
+   depends_on:
+     mariadb-db:
+       condition: service_healthy
+     eureka-server:
+       condition: service_healthy
+
+ ubicaciones-service:
+   build: ./ubicaciones
+   container_name: ubicaciones-service
+   environment:
+     SPRING_PROFILES_ACTIVE: dev
+     EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
+     DATABASE_HOST: mariadb-db
+     GATEWAY_URL: http://localhost:8080
+   networks:
+     - network-spotia
    depends_on:
      mariadb-db:
        condition: service_healthy
@@ -85,5 +117,5 @@ services:
 
 
 networks:
- network-jedi:
+ network-spotia:
    driver: bridge
